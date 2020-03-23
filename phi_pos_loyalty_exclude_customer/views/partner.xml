@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="phi_pos_loyalty_exclude_customer.view_partner_form" model="ir.ui.view">
+            <field name="name">"phi_pos_loyalty_exclude_customer.view_partner_form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="priority" eval="7"/>
+            <field name="arch" type="xml">
+              <xpath expr="//field[@name='property_payment_term_id']" position="after">
+                <field name="is_loyalty_exclude"/>
+              </xpath>
+            </field>
+       </record>
+
+         <record id="phi_pos_loyalty_exclude_customer.view_partner_filter" model="ir.ui.view">
+            <field name="name">"phi_pos_loyalty_exclude_customer.view_partner_filter</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+              <xpath expr="//filter[@name='supplier']" position="after">
+                <filter domain="[['is_loyalty_exclude','=',True]]" name="phi_pos_loyalty_exclude_customer_partner_is_exclude" string="Exclu Fidélité"/>
+              </xpath>
+            </field>
+       </record>
+
+    </data>
+</odoo>

@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Spécifique Orange Bleu",
+    'name': "POS fidélité : exclure client",
 
     'summary': """
-        Spécifique ODOO pour Orange Bleu
+        POS fidélité : exclure client
         """,
 
     'description': """
-        Spécifique ODOO pour Orange Bleu
+        POS fidélité : exclure client
     """,
 
     'author': "Phidias",
@@ -22,24 +22,13 @@
     # any module necessary for this one to work correctly
     'depends': [
         'base',
-        'account',
-        'stock',
-        'mrp',
-        'sale_management',
-        'point_of_sale',
-        'hr',
-        'contacts',
-        'hr_skills',
-        'stock_barcode',
-        'calendar',
-        'mail',
         'pos_loyalty',
-        'phi_pos_loyalty_exclude_customer',
     ],
 
     # always loaded
     'data': [
         #'security/ir.model.access.csv',
+        'views/partner.xml',
         'views/assets.xml',
     ],
     # only loaded in demonstration mode
