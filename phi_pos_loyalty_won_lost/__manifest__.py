@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Spécifique Orange Bleu",
+    'name': "POS fidélité : point gagné et perdus",
 
     'summary': """
-        Spécifique ODOO pour Orange Bleu
+        POS fidélité : point gagné et perdus
         """,
 
     'description': """
-        Spécifique ODOO pour Orange Bleu
+        POS fidélité : point gagné et perdus
     """,
 
     'author': "Phidias",
@@ -22,26 +22,14 @@
     # any module necessary for this one to work correctly
     'depends': [
         'base',
-        'account',
-        'stock',
-        'mrp',
-        'sale_management',
-        'point_of_sale',
-        'hr',
-        'contacts',
-        'hr_skills',
-        'stock_barcode',
-        'calendar',
-        'mail',
         'pos_loyalty',
-        'phi_pos_loyalty_exclude_customer',
-        'phi_pos_loyalty_won_lost',
     ],
 
     # always loaded
     'data': [
         #'security/ir.model.access.csv',
         'views/assets.xml',
+        'views/pos_order.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

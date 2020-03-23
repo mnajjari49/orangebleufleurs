@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+         <record id="phi_pos_loyalty_won_lost.view_pos_pos_form" model="ir.ui.view">
+            <field name="name">"phi_pos_loyalty_won_lost.view_pos_pos_form</field>
+            <field name="model">pos.order</field>
+            <field name="inherit_id" ref="pos_loyalty.view_pos_pos_form"/>
+            <field name="priority" eval="7"/>
+            <field name="arch" type="xml">
+              <xpath expr="//field[@name='loyalty_points']" position="after">
+                <field name="loyalty_points_won"/>
+                <field name="loyalty_points_lost"/>
+              </xpath>
+            </field>
+       </record>
+
+        <record id="phi_pos_loyalty_won_lost.view_pos_order_tree" model="ir.ui.view">
+            <field name="name">"phi_pos_loyalty_won_lost.view_pos_order_tree</field>
+            <field name="model">pos.order</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_order_tree"/>
+            <field name="arch" type="xml">
+              <xpath expr="//field[@name='state']" position="after">
+                <field name="company_id"/>
+              </xpath>
+              <xpath expr="//field[@name='amount_total']" position="after">
+                <field name="loyalty_points"/>
+                <field name="loyalty_points_won"/>
+                <field name="loyalty_points_lost"/>
+              </xpath>
+            </field>
+       </record>
+
+        <record id="phi_pos_loyalty_won_lost.view_pos_order_filter" model="ir.ui.view">
+            <field name="name">"phi_pos_loyalty_won_lost.view_pos_order_filter</field>
+            <field name="model">pos.order</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_order_filter"/>
+            <field name="arch" type="xml">
+              <xpath expr="//filter[@name='order_month']" position="after">
+                <filter context="{'group_by': 'company_id'}" name="studio_group_by_smTTK" string="Company"/>
+              </xpath>
+            </field>
+       </record>
+
+        <record id="point_of_sale.action_pos_pos_form" model="ir.actions.act_window">
+            <field name="view_mode">tree,form,kanban,pivot,graph</field>
+        </record>
+    </data>
+</odoo>
