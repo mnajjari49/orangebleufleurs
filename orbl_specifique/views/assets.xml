@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="assets" name="custom assets" inherit_id="point_of_sale.index">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/orbl_specifique/static/src/js/point_of_sale_screens.js"></script>
+            </xpath>
+        </template>
+    </data>
+</odoo>
