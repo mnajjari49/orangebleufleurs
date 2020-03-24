@@ -37,6 +37,7 @@
         'phi_pos_loyalty_exclude_customer',
         'phi_pos_loyalty_won_lost',
         'phi_pos_sale_hour',
+        'product_sequence',
     ],
 
     # always loaded
