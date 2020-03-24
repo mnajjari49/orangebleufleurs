@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+         <record id="phi_pos_sale_hour.view_pos_pos_form" model="ir.ui.view">
+            <field name="name">"phi_pos_sale_hour.view_pos_pos_form</field>
+            <field name="model">pos.order</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+            <field name="priority" eval="7"/>
+            <field name="arch" type="xml">
+              <xpath expr="//field[@name='company_id']" position="after">
+                <field name="creation_hour"/>
+              </xpath>
+            </field>
+       </record>
+
+        <record id="phi_pos_sale_hour.view_pos_order_filter" model="ir.ui.view">
+            <field name="name">"phi_pos_sale_hour.view_pos_order_filter</field>
+            <field name="model">pos.order</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_order_filter"/>
+            <field name="arch" type="xml">
+              <xpath expr="//filter[@name='order_month']" position="after">
+                <filter context="{'group_by': 'creation_hour'}" name="phi_pos_sale_hour_groupby_hour" string="Heure Création"/>
+              </xpath>
+            </field>
+       </record>
+
+    </data>
+</odoo>

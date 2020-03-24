@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Spécifique Orange Bleu",
+    'name': "POS Vente : Heures dans les ventes",
 
     'summary': """
-        Spécifique ODOO pour Orange Bleu
+        POS Vente : Heures dans les ventes
         """,
 
     'description': """
-        Spécifique ODOO pour Orange Bleu
+        POS Vente : Heures dans les ventes
     """,
 
     'author': "Phidias",
@@ -22,30 +22,17 @@
     # any module necessary for this one to work correctly
     'depends': [
         'base',
-        'account',
-        'stock',
-        'mrp',
-        'sale_management',
         'point_of_sale',
-        'hr',
-        'contacts',
-        'hr_skills',
-        'stock_barcode',
-        'calendar',
-        'mail',
-        'pos_loyalty',
-        'phi_pos_loyalty_exclude_customer',
-        'phi_pos_loyalty_won_lost',
-        'phi_pos_sale_hour',
     ],
 
     # always loaded
     'data': [
         #'security/ir.model.access.csv',
-        'views/assets.xml',
+        'views/pos_order.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
-    ]
+    ],
+    'post_init_hook': 'post_init_hook',
 }
