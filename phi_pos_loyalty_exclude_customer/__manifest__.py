@@ -31,6 +31,7 @@
         'views/partner.xml',
         'views/assets.xml',
     ],
+    'qweb': ['static/src/xml/loyalty.xml'],
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',

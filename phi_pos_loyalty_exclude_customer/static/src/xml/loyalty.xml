@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-extend="OrderReceipt">
+        <t t-jquery='.loyalty' t-operation='replace'>
+            <div class='loyalty'>
+                <span class="pos-receipt-center-align">
+                    <div>--------------------------------</div>
+                    <br/>
+                    <div t-esc='receipt.loyalty.name' class="pos-receipt-title"/>
+                    <br />
+                    <div><t t-esc='receipt.loyalty.client' /></div>
+                    <br/>
+                </span>
+                <t t-if='receipt.loyalty.points_actual'>
+                    <div>Points Avant Ticket <span t-esc='widget.format_pr(receipt.loyalty.points_actual, receipt.loyalty.rounding)' class="pos-receipt-right-align"/></div>
+                </t>
+                <t t-if='receipt.loyalty.points_won'>
+                    <div>Points Gagnés <span t-esc='widget.format_pr(receipt.loyalty.points_won, receipt.loyalty.rounding)' class="pos-receipt-right-align"/></div>
+                </t>
+                <t t-if='receipt.loyalty.points_spent'>
+                    <div>Points Perdus <span t-esc='widget.format_pr(receipt.loyalty.points_spent, receipt.loyalty.rounding)' class="pos-receipt-right-align"/></div>
+                </t>
+                <t t-if='receipt.loyalty.points_total'>
+                    <div>Total Points <span t-esc='widget.format_pr(receipt.loyalty.points_total, receipt.loyalty.rounding)' class="pos-receipt-right-align"/></div>
+                </t>
+                <br />
+            </div>
+        </t>
+</t>
+
+</templates>

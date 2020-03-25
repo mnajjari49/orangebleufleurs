@@ -19,6 +19,5 @@ odoo.define('phi_pos_loyalty_won_lost.pos_loyalty', function (require) {
             json.loyalty_points_lost = this.get_spent_points();
             return json;
         },
-
     });
 });
