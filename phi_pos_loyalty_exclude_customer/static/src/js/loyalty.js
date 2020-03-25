@@ -51,7 +51,7 @@ odoo.define('phi_pos_loyalty_exclude_customer.pos_loyalty', function (require) {
         export_for_printing: function(){
             var json = _super.prototype.export_for_printing.apply(this,arguments);
             if (this.get_client() && this.get_client().is_loyalty_exclude) {
-                json.loyalty = {};
+                json.loyalty = false;
             }
             return json;
         },
