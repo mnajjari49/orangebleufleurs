@@ -13,10 +13,13 @@ class ResPartner(models.Model):
         is_loyalty_exclude_change = False
         if values.get('is_loyalty_exclude') and values['is_loyalty_exclude']:
             is_loyalty_exclude_change = True
-            values['loyalty_points'] = 0
         res = super(ResPartner, self).write(values)
         if is_loyalty_exclude_change and self.is_loyalty_exclude:
-            pos_orders = self.env['pos.order'].search([('partner_id', '=', self.id), ('loyalty_points', '!=', 0)])
+            pos_orders = self.env['pos.order'].search([('partner_id', '=', self.id), ('loyalty_points_won', '!=', 0)])
             for pos_order in pos_orders:
-                pos_order.write({'loyalty_points': 0})
+                pos_order.write({'loyalty_points_won': 0})
+                pos_order.write({'loyalty_points_lost': 0})
+            pos_orders = self.env['pos.order'].search([('partner_id', '=', self.id), ('loyalty_points_lost', '!=', 0)])
+            for pos_order in pos_orders:
+                pos_order.write({'loyalty_points_lost': 0})
         return res
