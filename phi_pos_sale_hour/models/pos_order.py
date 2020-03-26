@@ -12,7 +12,7 @@ class PosOrder(models.Model):
     @api.model
     def create(self, values):
         if values.get("date_order"):
-            date = fields.Datetime.context_timestamp(self, fields.Datetime.to_datetime(values["date_order"]))
+            date = fields.Datetime.context_timestamp(self, fields.Datetime.to_datetime(values["date_order"].replace('T', ' ')))
             hour = date.hour
             values["creation_hour"] = "%02d" % hour
         return super(PosOrder, self).create(values)

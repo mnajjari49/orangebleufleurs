@@ -25,5 +25,20 @@
             </field>
        </record>
 
+        <record id="point_of_sale.action_pos_pos_form" model="ir.actions.act_window">
+            <field name="view_mode">tree,kanban,form,graph,pivot</field>
+        </record>
+
+       <record id="phi_pos_sale_hour.view_report_pos_order_search" model="ir.ui.view">
+            <field name="name">"phi_pos_sale_hour.view_report_pos_order_search</field>
+            <field name="model">report.pos.order</field>
+            <field name="inherit_id" ref="point_of_sale.view_report_pos_order_search"/>
+            <field name="arch" type="xml">
+              <xpath expr="//filter[@name='order_month']" position="after">
+                <filter context="{'group_by': 'creation_hour'}" name="studio_group_by_XfgD9" string="Heure Création"/>
+              </xpath>
+            </field>
+       </record>
+
     </data>
 </odoo>
