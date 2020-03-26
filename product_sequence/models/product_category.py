@@ -45,12 +45,13 @@ class ProductCategory(models.Model):
                 else:
                     seq_vals = self._prepare_ir_sequence(prefix)
                     rec.sequence_id = self.env["ir.sequence"].create(seq_vals)
-        return super().write(vals)
+        return super(ProductCategory,self).write(vals)
 
+    @api.model
     def create(self, vals):
         prefix = vals.get("code_prefix")
         if prefix:
             seq_vals = self._prepare_ir_sequence(prefix)
             sequence = self.env["ir.sequence"].create(seq_vals)
             vals["sequence_id"] = sequence.id
-        return super().create(vals)
+        return super(ProductCategory, self).create(vals)
