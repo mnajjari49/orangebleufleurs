@@ -23,6 +23,7 @@
     'depends': [
         'base',
         'pos_loyalty',
+        'phi_pos_loyalty_exclude_customer',
     ],
 
     # always loaded
@@ -30,7 +31,6 @@
         #'security/ir.model.access.csv',
         'views/assets.xml',
         'views/pos_order.xml',
-        'phi_pos_loyalty_exclude_customer',
     ],
     # only loaded in demonstration mode
     'demo': [
