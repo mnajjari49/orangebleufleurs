@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="ace_view_pos_config_form">
+            <field name="name">pos.config.form.view</field>
+            <field name="model">pos.config</field>
+            <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@id='posbox_reference']" position="after">
+                    <h2>Sale Order Configurations</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-xs-12 col-md-6 o_setting_box" id="sale_order_operations">
+		                    <div class="o_setting_right_pane">
+		                        <div class="content-group mt16">
+		                            <div class="row mt16">
+		                                <label string="Operation" for="sale_order_operations" class="col-md-3 o_light_label"/>
+		                                <field name="sale_order_operations"/>
+		                            </div>
+		                            <div class="row mt16">
+                                        <label string="Paid Amount Product" for="paid_amount_product" class="col-md-3 o_light_label"/>
+                                        <field name="paid_amount_product"/>
+                                    </div>
+                                    <div class="row mt16">
+                                        <label string="Warehouse" for="warehouse_id" class="col-md-3 o_light_label"/>
+                                        <field name="warehouse_id"/>
+                                    </div>
+		                        </div>
+		                    </div>
+		                </div>
+		                <div class="col-xs-12 col-md-6 o_setting_box" id="sale_order_operations">
+                            <div class="o_setting_left_pane">
+                                <div class="content-group mt16">
+                                    <field name="sale_order_invoice"/>
+                                </div>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <div class="content-group mt16">
+                                    <div class="row mt16">
+                                        <label string="Invoice" for="sale_order_invoice" class="col-md-3 o_light_label"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h2>Gift Card</h2>
+                    <div class="row mt16 o_settings_container" id="gift_card_config">
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="enable_gift_card"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="enable_gift_card"/>
+                                <div class="text-muted">
+                                    Enable to use Gift Card in POS Interface.
+                                </div>
+                                <div class="content-group" attrs="{'invisible' : [('enable_gift_card', '=', False)]}">
+                                    <div class="row mt16">
+                                        <label string="Product" for="gift_card_product_id" class="col-md-3 o_light_label"/>
+                                        <field name="gift_card_product_id" domain="[('available_in_pos','=','True')]" 
+                                            attrs="{'invisible':[('enable_gift_card','=',False)],'required':[('enable_gift_card','=',True)]}"/>
+                                    </div>
+                                    <div class="row mt16">
+                                        <label string="Journal" for="enable_journal_id" class="col-md-3 o_light_label"/>
+                                       <field name="enable_journal_id"
+                                            attrs="{'invisible' : [('enable_gift_card', '=', False)],'required':[('enable_gift_card','=',True)]}"
+                                            domain = "[('allow_for_gift_card','=',True)]"
+                                            options="{'no_create':1}"/>
+                                    </div>
+                                    <div class="row mt16">
+                                        <label string="Manual Card Number" for="manual_card_number" class="col-md-3 o_light_label"/>
+                                        <field name="manual_card_number"/>
+                                    </div>
+                                    <div class="row mt16">
+                                        <label string="Default Expire Month" for="default_exp_date" class="col-md-3 o_light_label"/>
+                                        <field name="default_exp_date"/>
+                                    </div>
+                                    <div class="row mt16">
+                                        <label string="Enable Confirmation Message" for="msg_before_card_pay" class="col-md-3 o_light_label"/>
+                                        <field name="msg_before_card_pay"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h2>POS Close Session</h2>
+                    <div class="row mt16 o_settings_container" id="gift_card_config">
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="allow_with_zero_amount"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="allow_with_zero_amount"/>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 name="order" position="before">Credit Management</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-xs-12 col-md-6 o_setting_box" id="category_reference" position="after">
+                            <div class="o_setting_left_pane">
+                                <field name="enable_credit"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="enable_credit" string="Credit Management"/>
+                                <div class="text-muted">
+                                    POS Credit
+                                </div>
+                            </div>
+                            <div class="o_setting_left_pane">
+                                <field name="print_ledger" attrs="{'invisible' : [('enable_credit', '=', False)],'required':[('enable_credit','==',True)]}"/>
+                            </div>
+                            <div class="o_setting_right_pane" attrs="{'invisible' : [('enable_credit', '=', False)]}">
+                                <label for="print_ledger" string="Print Credit Statement"/>
+                                <div class="text-muted">
+                                    Print Credit Statement
+                                </div>
+                                <div class="content-group mt16" attrs="{'invisible' : [('enable_credit', '=', False)]}">
+                                    <div class="row mt16">
+                                        <label string="Select Journal" for="pos_journal_id" class="col-md-3 o_light_label"/>
+                                        <field name="pos_journal_id" domain = "[('allow_for_credit','=',True)]"
+                                        attrs="{'invisible' : [('enable_credit', '=', False)],'required':[('enable_credit','==',True)]}"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="o_setting_left_pane">
+                                <field name="receipt_balance" attrs="{'invisible' : [('enable_credit', '=', False)],'required':[('enable_credit','==',True)]}"/>
+                            </div>
+                            <div class="o_setting_right_pane" attrs="{'invisible' : [('enable_credit', '=', False)]}">
+                                <label for="receipt_balance" string="Display Balance info on Receipt"/>
+                                <div class="text-muted">
+                                    Display Balance info on Receipt
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_right_pane" attrs="{'invisible' : [('enable_credit', '=', False)]}">
+                                <div class="content-group mt16">                                    
+                                    <div class="row mt16">
+                                        <label string="Paid Amount Product" for="prod_for_payment" class="col-md-3 o_light_label"/>
+                                        <field name="prod_for_payment" attrs="{'invisible':[('enable_credit','=',False)],
+                                            'required':[('enable_credit','=',True)]}"/>
+                                    </div>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="aspl_view_order_form" model="ir.ui.view">
+	        <field name="name">sale.order.form</field>
+	        <field name="model">sale.order</field>
+	        <field name="inherit_id" ref="sale.view_order_form"/>
+	        <field name="arch" type="xml">
+	            <field name="amount_total" position="after">
+                    <field name="amount_due" />
+                </field>                
+	        </field>
+	    </record>
+
+        <record id="product_paid_amount" model="product.product">
+            <field name="name">Paid Amount</field>
+            <field name="default_code">Paid-Amount</field>
+            <field name="sale_ok" eval="True"/>
+            <field name="available_in_pos" eval="True"/>
+            <field name="list_price">0</field>
+            <field name="type">service</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="description">This is a dummy product used user edit the drafted order as paid amount.</field>
+        </record>
+
+        <record id="res_users_form_view_inherit" model="ir.ui.view">
+            <field name="name">res.users.form.view</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form" />
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Point Of Sale">
+                        <group>
+                            <field name="display_own_sales_order"/>
+                            <field name="display_amount_during_close_session"/>
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+        <record id="aspl_view_customer_form" model="ir.ui.view">
+            <field name="name">Customer Form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="category_id" position="after"> 
+                     <field name = "remaining_credit_amount"/>
+                </field>
+                <notebook>
+                    <page string = "Cards">
+                        <field name = "card_ids"/>
+                    </page>
+                    <page string = "Used Cards">
+                        <field name = "used_ids"/> 
+                    </page>
+                    <page string = "Recharged Cards">
+                        <field name = "recharged_ids"/> 
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+        <record id="ace_view_pos_payment_method_form" model="ir.ui.view" >
+            <field name="name">pos.payment.method.form.view.inherit</field>
+            <field name="model">pos.payment.method</field>
+            <field name="inherit_id" ref="point_of_sale.pos_payment_method_view_form"/>
+            <field name="arch" type="xml">
+                <field name="is_cash_count" position="before">
+                    <field name="allow_for_gift_card"/>
+                    <field name="allow_for_credit"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

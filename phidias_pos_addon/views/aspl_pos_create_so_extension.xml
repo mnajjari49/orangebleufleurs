@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- vim:fdn=3:-->
+<odoo>
+    <data>
+
+        <template id="phidias_pos_addon_index" name="phidias_pos_addon assets" inherit_id="point_of_sale.index">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/phidias_pos_addon/static/src/js/models.js"></script>
+                <script type="text/javascript" src="/phidias_pos_addon/static/src/js/flashcanvas.js"></script>
+                <script type="text/javascript" src="/phidias_pos_addon/static/src/js/jSignature.min.js"></script>
+                <script type="text/javascript" src="/phidias_pos_addon/static/src/js/db.js"></script>
+                <script type="text/javascript" src="/phidias_pos_addon/static/src/js/screen.js"></script>
+                <script type="text/javascript" src="/phidias_pos_addon/static/src/js/popup.js"></script>
+                <script type="text/javascript" src="/phidias_pos_addon/static/src/js/jquery-barcode.js"></script>
+                <script type="text/javascript" src="/phidias_pos_addon/static/src/js/JsBarcode.all.min.js"></script>
+                <script type="text/javascript" src="/phidias_pos_addon/static/src/js/lib/jquery.simplePagination.js"></script>
+                <link rel="stylesheet" href="/phidias_pos_addon/static/src/css/pos.css" id="pos-stylesheet"/>
+                <link rel="stylesheet" href="/phidias_pos_addon/static/src/css/datepicker.css" id="pos-stylesheet"/>
+                <script type="text/javascript" src="/phidias_pos_addon/static/src/js/lib/jquery.datetimepicker.full.min.js"></script>
+                <script type="text/javascript" src="/phidias_pos_addon/static/src/js/lib/fabric.min.js"></script>
+                <link rel="stylesheet" href="/phidias_pos_addon/static/src/css/jquery.datetimepicker.css" id="pos-stylesheet"/>
+                <link rel="stylesheet" href="/phidias_pos_addon/static/src/css/gift_card.css" id="pos-stylesheet"/>
+            </xpath>
+        </template>
+
+    </data>
+</odoo>
