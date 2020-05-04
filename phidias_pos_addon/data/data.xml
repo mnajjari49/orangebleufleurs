@@ -162,7 +162,7 @@
         </record>
 
         <record id="aspl_account_account" model="account.account">
-            <field name="code">105100</field>
+            <field name="code">623401</field>
             <field name="name">Gift Card</field>
             <field name="reconcile">True</field>
             <field name="user_type_id">3</field>            
@@ -175,7 +175,7 @@
         </record>
 
         <record id="aspl_credit_account_account" model="account.account">
-            <field name="code">105200</field>
+            <field name="code">623402</field>
             <field name="name">Credit Card</field>
             <field name="reconcile">True</field>
             <field name="user_type_id">3</field>            
