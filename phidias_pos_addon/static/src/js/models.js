@@ -25,13 +25,14 @@ odoo.define('phidias_pos_addon.models', function (require) {
         fields: [],
         context: [],
         loaded: function(self, states){
-            self.states = [];
+            self.sale_states = [];
             _.each(states, function(state){
-                self.states.push({
+                self.sale_states.push({
                     id: state.id,
                     value: state.name
                 });
             });
+            console.log("----->",self.sale_states)
         },
     });
     models.load_models({
@@ -39,9 +40,9 @@ odoo.define('phidias_pos_addon.models', function (require) {
         fields: [],
         context: [],
         loaded: function(self, countries){
-            self.countries = [];
+            self.ship_countries = [];
             _.each(countries, function(country){
-                self.countries.push({
+                self.ship_countries.push({
                     id: country.id,
                     value: country.name
                 });

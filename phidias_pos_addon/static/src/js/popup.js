@@ -164,28 +164,28 @@ odoo.define('phidias_pos_addon.popup', function (require) {
                 }
             });
             $('.ship_create_contact').find('.client_state').autocomplete({
-				source: self.pos.states || false,
+				source: self.pos.sale_states || false,
 				select: function (event, ui) {
 				    self.shipping_state = ui.item.id;
 					return ui.item.value
 				}
 			});
 			$('.ship_create_contact').find('.client_country').autocomplete({
-				source: self.pos.countries || false,
+				source: self.pos.ship_countries || false,
 				select: function (event, ui) {
 				    self.shipping_country = ui.item.id;
 					return ui.item.value
 				}
 			});
 			$('.invoice_create_contact').find('.client_state').autocomplete({
-				source: self.pos.states || false,
+				source: self.pos.sale_states || false,
 				select: function (event, ui) {
 				    self.invoice_state = ui.item.id;
 					return ui.item.value
 				}
 			});
 			$('.invoice_create_contact').find('.client_country').autocomplete({
-				source: self.pos.countries || false,
+				source: self.pos.ship_countries || false,
 				select: function (event, ui) {
 				    self.invoice_country = ui.item.id;
 					return ui.item.value
