@@ -13,13 +13,13 @@
                     <br/>
                 </span>
                 <t t-if='receipt.loyalty.points_actual'>
-                    <div>Points Avant Ticket <span t-esc='widget.format_pr(receipt.loyalty.points_actual, receipt.loyalty.rounding)' class="pos-receipt-right-align"/></div>
+                    <div>Points Before Ticket <span t-esc='widget.format_pr(receipt.loyalty.points_actual, receipt.loyalty.rounding)' class="pos-receipt-right-align"/></div>
                 </t>
                 <t t-if='receipt.loyalty.points_won'>
-                    <div>Points Gagnés <span t-esc='widget.format_pr(receipt.loyalty.points_won, receipt.loyalty.rounding)' class="pos-receipt-right-align"/></div>
+                    <div>Points Earned <span t-esc='widget.format_pr(receipt.loyalty.points_won, receipt.loyalty.rounding)' class="pos-receipt-right-align"/></div>
                 </t>
                 <t t-if='receipt.loyalty.points_spent'>
-                    <div>Points Perdus <span t-esc='widget.format_pr(receipt.loyalty.points_spent, receipt.loyalty.rounding)' class="pos-receipt-right-align"/></div>
+                    <div>Consumed Points <span t-esc='widget.format_pr(receipt.loyalty.points_spent, receipt.loyalty.rounding)' class="pos-receipt-right-align"/></div>
                 </t>
                 <t t-if='receipt.loyalty.points_total'>
                     <div>Total Points <span t-esc='widget.format_pr(receipt.loyalty.points_total, receipt.loyalty.rounding)' class="pos-receipt-right-align"/></div>

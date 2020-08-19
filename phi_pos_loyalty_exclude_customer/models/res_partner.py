@@ -7,7 +7,7 @@ from odoo import fields, models
 class ResPartner(models.Model):
     _inherit = 'res.partner'
 
-    is_loyalty_exclude = fields.Boolean(string="Exclu Programme Fidélité", default=False)
+    is_loyalty_exclude = fields.Boolean(string="Excluded from loyalty programs", default=False)
 
     def write(self, values):
         is_loyalty_exclude_change = False
